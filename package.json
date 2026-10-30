@@ -1,0 +1,40 @@
+{
+  "name": "dsh-plugin-computer-use",
+  "version": "0.1.0",
+  "description": "Let the DeepSeek Harness agent drive the Windows desktop (mouse, keyboard, windows, screenshots) and browse the Douyin web feed",
+  "type": "module",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "computer-use",
+    "windows",
+    "automation",
+    "douyin"
+  ],
+  "files": [
+    "lib/index.js",
+    "lib/agent-client.js",
+    "lib/agent.ps1",
+    "lib/douyin.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "dsh": ">=0.2.0 <0.3.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.0 <5",
+    "@deepseek-ai/dsh-tools": ">=0.2.0 <0.3.0",
+    "@deepseek-ai/schemastery": ">=3.18.0 <4"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node test/smoke.mjs"
+  }
+}

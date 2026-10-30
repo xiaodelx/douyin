@@ -1,0 +1,11 @@
+# dependencies (only created when testing outside DSH)
+node_modules/
+
+# screenshots and agent state
+*.log
+shots/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini

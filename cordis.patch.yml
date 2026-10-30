@@ -1,0 +1,17 @@
+# dsh-plugin-computer-use bundle layer.
+# Inserted into the profile when this package is installed as a bundle.
+# The config keys mirror the flat Config schema in lib/index.js.
+- insert:
+    - id: computer-use
+      name: dsh-plugin-computer-use
+      config:
+        screenshotMaxWidth: 1280
+        agentTimeoutMs: 20000
+        douyinUrl: https://www.douyin.com/
+        douyinWindowTitle: 抖音
+        maxWatchCount: 20
+        minDwellMs: 3000
+        maxDwellMs: 12000
+        likeChance: 0.2
+        maxLikesPerRun: 5
+        openTimeoutMs: 25000
