@@ -1,0 +1,5 @@
+name: astrbot_plugin_pc_control
+desc: 让机器人真的操作 Windows 桌面（鼠标/键盘/截图/窗口），并能刷抖音客户端或网页版。
+author: xiaodelx
+version: 0.1.0
+repo: https://github.com/xiaodelx/douyin

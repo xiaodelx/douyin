@@ -1,0 +1,62 @@
+{
+  "allow_non_admin": {
+    "type": "bool",
+    "description": "允许非管理员使用电脑控制工具（危险：等于把鼠标键盘交给群里所有人）",
+    "default": false
+  },
+  "screenshot_max_width": {
+    "type": "int",
+    "description": "截图最长边像素，越小越省流量",
+    "default": 1280
+  },
+  "agent_timeout_ms": {
+    "type": "int",
+    "description": "单条桌面指令的超时时间（毫秒）",
+    "default": 20000
+  },
+  "output_dir": {
+    "type": "string",
+    "description": "截图与代理状态目录，留空使用 ~/.astrbot/plugin_data/pc_control",
+    "default": ""
+  },
+  "douyin_url": {
+    "type": "string",
+    "description": "douyin(action=open) 打开的地址",
+    "default": "https://www.douyin.com/"
+  },
+  "douyin_window_title": {
+    "type": "string",
+    "description": "用窗口标题里的关键字识别抖音窗口",
+    "default": "抖音"
+  },
+  "max_watch_count": {
+    "type": "int",
+    "description": "批量观看（watch）的默认条数上限",
+    "default": 10
+  },
+  "min_dwell_ms": {
+    "type": "int",
+    "description": "每条视频最短停留时间（毫秒）",
+    "default": 3000
+  },
+  "max_dwell_ms": {
+    "type": "int",
+    "description": "每条视频最长停留时间（毫秒）",
+    "default": 10000
+  },
+  "like_chance": {
+    "type": "float",
+    "description": "批量观看时给一条视频点赞的概率（0 表示不点赞）",
+    "default": 0.2
+  },
+  "max_likes_per_run": {
+    "type": "int",
+    "description": "单次批量最多点赞数",
+    "default": 3
+  },
+  "open_timeout_ms": {
+    "type": "int",
+    "description": "open 动作等待抖音窗口出现的最长时间（毫秒）",
+    "default": 25000
+  }
+}

@@ -4,6 +4,15 @@
 
 仓库：<https://github.com/xiaodelx/douyin>
 
+## 两套实现，同一个后端
+
+| 目录 | 目标平台 | 安装方式 |
+| --- | --- | --- |
+| 仓库根目录 | DeepSeek Harness（Cordis / ESM） | `dsh plugin --profile desktop add .` |
+| [`astrbot/astrbot_plugin_pc_control`](astrbot/astrbot_plugin_pc_control) | AstrBot 4.x（Star / Python） | 复制到 `<ASTRBOT_DATA>/plugins/` 后重载插件 |
+
+两边共用同一个 `agent.ps1`（常驻 PowerShell + `SendInput`/GDI），工具契约各自适配插件体系；能力、坐标规则、急停键（`Ctrl+Alt+Shift+Q`）一致。**下文是 DSH 版的完整说明，AstrBot 版见子目录里的 README。**
+
 - 工具 `computer`：截图、移动/点击/拖拽、滚轮、打字、快捷键、窗口枚举与聚焦、启动程序、剪贴板、等待、急停。
 - 工具 `douyin`：打开抖音网页版、上/下滑视频、点赞、暂停/播放、批量"看视频"、校准按钮坐标、评论（需显式确认）。
 - 所有输入都是**真的发生在你的桌面上**（Win32 `SendInput` + GDI 截图），不是模拟器、不是接口调用。
