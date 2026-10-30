@@ -28,23 +28,31 @@ AstrBot 的 `@llm_tool`。
 
 ## 安装
 
-把整个目录放到 AstrBot 的插件目录：
+**从 GitHub 装（推荐）**：AstrBot WebUI →「插件」→「安装插件」→ 填仓库地址
 
 ```
-<ASTRBOT_DATA>/plugins/astrbot_plugin_pc_control/
-├── main.py
-├── agent.ps1
-├── metadata.yaml
-├── _conf_schema.json
-├── requirements.txt
-└── README.md
+https://github.com/xiaodelx/douyin
 ```
+
+AstrBot 会在仓库**根目录**找 `metadata.yaml` 和 `main.py`，这个仓库根目录就是插件本体，所以能直接装。
+装好后在「插件」页点**重载**（或重启 AstrBot），日志里应出现
+`Added llm tool: pc_screenshot ... douyin`。
+
+> 同一个仓库里还平行放了 DeepSeek Harness 版（`package.json` + `lib/` + `dsh` 相关文件），
+> AstrBot 装的时候会一起拷走但完全忽略，两者互不影响。DSH 版说明见 [README.md](README.md)。
+
+**手动安装**：把仓库根目录整个复制成 `<ASTRBOT_DATA>/plugins/astrbot_plugin_pc_control`：
+
+| 文件 | 作用 |
+| --- | --- |
+| `main.py` | 插件与 5 个工具 |
+| `agent.ps1` | Win32 桌面后端（常驻 PowerShell） |
+| `metadata.yaml` | 插件元信息（安装器必读） |
+| `_conf_schema.json` | 配置项定义 |
+| `requirements.txt` | 空，无第三方依赖 |
 
 Windows 桌面版的 `<ASTRBOT_DATA>` 默认是 `C:\Users\<你>\.astrbot\data`，即
 `C:\Users\<你>\.astrbot\data\plugins\astrbot_plugin_pc_control`。
-
-放好后在 AstrBot WebUI 的「插件」页点**重载**（或重启 AstrBot）。日志里应出现
-`Added llm tool: pc_screenshot ... douyin`。
 
 依赖：**无**。只用标准库 + Windows 自带的 `powershell.exe`。
 

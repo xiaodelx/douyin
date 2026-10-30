@@ -6,12 +6,15 @@
 
 ## 两套实现，同一个后端
 
-| 目录 | 目标平台 | 安装方式 |
-| --- | --- | --- |
-| 仓库根目录 | DeepSeek Harness（Cordis / ESM） | `dsh plugin --profile desktop add .` |
-| [`astrbot/astrbot_plugin_pc_control`](astrbot/astrbot_plugin_pc_control) | AstrBot 4.x（Star / Python） | 复制到 `<ASTRBOT_DATA>/plugins/` 后重载插件 |
+> **注意：仓库根目录是 AstrBot 插件的入口**（`metadata.yaml` + `main.py`），因为 AstrBot 只认根目录的 `metadata.yaml`。
+> 所以从 GitHub 直接装进 AstrBot 时，填仓库地址即可。DSH 版用根目录的 `package.json` + `lib/`，两者互不影响。
 
-两边共用同一个 `agent.ps1`（常驻 PowerShell + `SendInput`/GDI），工具契约各自适配插件体系；能力、坐标规则、急停键（`Ctrl+Alt+Shift+Q`）一致。**下文是 DSH 版的完整说明，AstrBot 版见子目录里的 README。**
+| 入口文件 | 目标平台 | 安装方式 |
+| --- | --- | --- |
+| 根目录 `metadata.yaml` + `main.py` | AstrBot 4.x（Star / Python） | AstrBot「插件」页填 <https://github.com/xiaodelx/douyin>；说明见 [README.astrbot.md](README.astrbot.md) |
+| 根目录 `package.json` + `lib/` | DeepSeek Harness（Cordis / ESM） | `dsh plugin --profile desktop add E:\deepseekbot\dsh-plugin-computer-use` |
+
+两边共用同一个 `agent.ps1`（常驻 PowerShell + `SendInput`/GDI；AstrBot 用根目录那份，DSH 用 `lib/agent.ps1`，内容相同），工具契约各自适配插件体系；能力、坐标规则、急停键（`Ctrl+Alt+Shift+Q`）一致。**下文是 DSH 版的完整说明，AstrBot 版见 [README.astrbot.md](README.astrbot.md)。**
 
 - 工具 `computer`：截图、移动/点击/拖拽、滚轮、打字、快捷键、窗口枚举与聚焦、启动程序、剪贴板、等待、急停。
 - 工具 `douyin`：打开抖音网页版、上/下滑视频、点赞、暂停/播放、批量"看视频"、校准按钮坐标、评论（需显式确认）。
